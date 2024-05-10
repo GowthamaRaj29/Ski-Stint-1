@@ -1,0 +1,127 @@
+/* TaskBoard.css */
+/* TaskBoard.css */
+/* TaskBoard.css */
+/* TaskBoard.css */
+.bg{
+  background-color: #DFDFDF;
+}
+.taskboard-container {
+  /* Other styles... */
+  padding-bottom: 20px; /* Add margin bottom to the container */
+  border-radius: 20px;
+  
+}
+
+.taskboard-menu {
+  margin-bottom: 20px; /* Add margin bottom to create space between the menu and task cards */
+}
+
+.taskboard-filter-button {
+  font-size: 19px;
+  border-radius: 6px;
+  margin-right: 10px; /* Add space between the filter buttons */
+}
+
+.taskboard-filter-button:last-child {
+  margin-right: 0; /* Remove margin from the last filter button */
+}
+
+.task-filters {
+  background-color:(0, 0, 0, .569);
+  margin-bottom: 20px; /* Add some bottom margin */
+}
+
+.task-filter-button {
+  display: inline-block;
+  padding: 5px 10px;
+  margin-right: 10px; /* Add space between each filter button */
+  background-color: #4CAF50; /* Green background color */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.task-filter-button:last-child {
+  margin-right: 0; /* Remove margin from the last filter button */
+}
+
+.taskboard-card {
+  background-color: white;
+  border-radius:20px; /* Adjust the border-radius as needed */
+  padding: 10px; /* Add padding for spacing */
+  margin-bottom: 10px; /* Add margin to separate task cards */
+}
+
+/* Additional styles for taskboard-card */
+
+.taskboard-container {
+  width: 100%;
+  padding: 20px;
+  max-width: 1200px; /* Set the maximum width of the container */
+  margin: 0 auto; /* Center the container horizontally */
+  background-color: #DFDFDF;
+}
+
+.taskboard-title {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.taskboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Adjusted the minimum width of each task card */
+  gap: 20px;
+}
+
+.taskboard-grid-item {
+  background-color: #DFDFDF;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.taskboard-grid-item:hover {
+  background-color: #CCCCCC; /* Changed the hover color */
+}
+
+.task-detail {
+  padding: 10px;
+}
+
+.task-detail p {
+  margin: 5px 0;
+}
+
+.taskboard-download-button {
+  width: 12%;
+  align-content: center;
+  margin-left: 85%;
+  padding: 8px 16px;
+  background-color: #5865cb;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.taskboard-download-button:hover {
+  background-color: #4853a4;
+}
+
+.task-description {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #f0f0f0;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.description-heading {
+  font-weight: bold;
+}
+.task-filters {
+  margin-bottom: 20px; /* Add some bottom margin */
+}
