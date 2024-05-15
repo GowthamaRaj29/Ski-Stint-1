@@ -1,0 +1,95 @@
+
+/* Add this to the top of your CSS file */
+.brand
+{
+  text-decoration: none;
+}
+.navbar-image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: -40px; /* Adjust as needed */
+}
+
+.navbar-logo {
+  max-width: 30%;
+  height: auto;
+  /* Adjust the size as needed */
+}
+
+.body-shift {
+  padding-left: 250px; /* Adjust the value to match the width of your navbar */
+  transition: padding-left 0.3s ease;
+}
+
+.sidenavbar {
+  width: 0;
+  position: fixed;
+  z-index: 2; /* Below the FAB elements */
+  left: 0;
+  top: 0;
+  background-color: white;
+  overflow-x: hidden;
+  transition: width 0.3s ease;
+  /* ... other styles ... */
+}
+
+.sidenavbar.open {
+  width: 250px; /* Adjust the value to match the desired width of your navbar */
+}
+
+.menu-button {
+  z-index: 3;
+  color: black; /* Above the sidenavbar */
+  /* ... other styles ... */
+}
+
+/* Ensure your FAB elements have a lower z-index than the .menu-button */
+.fab {
+  z-index: 1;
+  /* ... other styles ... */
+}
+
+.sidenavbar {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 4;
+  top: 0;
+  left: 0;
+  background-color: white;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+.na{
+color: black;
+}
+.sidenavbar a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenavbar a:hover {
+  color: black;
+}
+
+.sidenavbar .active {
+  color: #4CAF50;
+}
+
+.menu-button {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.open {
+  width: 250px;
+}
