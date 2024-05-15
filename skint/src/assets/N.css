@@ -1,0 +1,107 @@
+
+.c {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Align items vertically */
+}
+
+.n {
+  border: 1px solid #dfdfdf;
+  width: 170px;
+  margin: 0 auto;
+  ; /* Center the element horizontally */
+}
+
+.brand
+{
+  text-decoration: none;
+}
+.navbar-image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: -40px;
+}
+
+.navbar-logo {
+  max-width: 30%;
+  height: auto;
+
+}
+
+.body-shift {
+  padding-left: 250px; 
+  transition: padding-left 0.3s ease;
+}
+
+.sidenavbar {
+  width: 0;
+  position: fixed;
+  z-index: 2;
+  left: 0;
+  top: 0;
+  background-color: white;
+  overflow-x: hidden;
+  transition: width 0.3s ease;
+
+}
+
+.sidenavbar.open {
+  width: 250px; 
+}
+
+.menu-button {
+  z-index: 3;
+  color: black; 
+ 
+}
+
+
+.fab {
+  z-index: 1;
+
+}
+
+.sidenavbar {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 4;
+  top: 0;
+  left: 0;
+  background-color: white;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+.na{
+color: black;
+}
+.sidenavbar a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenavbar a:hover {
+  color: black;
+}
+
+.sidenavbar .active {
+  color: #4CAF50;
+}
+
+.menu-button {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.open {
+  width: 250px;
+}
