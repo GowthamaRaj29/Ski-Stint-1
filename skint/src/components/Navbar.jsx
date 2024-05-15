@@ -14,7 +14,19 @@ function BrandExample() {
   };
 
   const filteredTasks = tasks.filter(task => {
-    return task.assignedBy.toLowerCase().includes(searchText.toLowerCase());
+    const taskDetails = [
+      task.id,
+      task.assignedBy,
+      task.assignedTo,
+      task.name,
+      task.description,
+      task.startDate,
+      task.endDate,
+      task.status,
+    ].map(field => (typeof field === 'string' ? field.toLowerCase() : ''));
+
+    // Check if any non-empty field includes the search text
+    return taskDetails.some(field => field.includes(searchText.toLowerCase()));
   });
 
   return (

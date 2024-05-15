@@ -6,14 +6,12 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogActions from '@mui/material/DialogActions';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
-import Typography from '@mui/material/Typography';
-
-import '../assets/TaskBoard.css';
-import tasksData from './Task.json';
 import Fab from '@mui/material/Fab';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
+import '../assets/TaskBoard.css';
+import tasksData from './Task.json';
 
 const Taskboard = () => {
   const [tasks, setTasks] = useState(tasksData);
@@ -104,7 +102,11 @@ const Taskboard = () => {
         <div className='muja'>
           <div className="taskboard-cards">
             {filteredTasks.map(task => (
-              <div key={task.id} className={`taskboard-card ${task.status === 'Complete' ? 'completed' : 'incomplete'}`} onClick={() => handleTaskClick(task.id)}>
+              <div 
+                key={task.id} 
+                className={`taskboard-card ${task.status === 'Completed' ? 'completed' : task.status === 'Incomplete' ? 'incomplete' : task.status === 'Overdue' ? 'overdue' : ''}`} 
+                onClick={() => handleTaskClick(task.id)}
+              >
                 <h2>{task.name}</h2>
                 <p>Assigned By: {task.assignedBy}</p>
               </div>
@@ -127,13 +129,30 @@ const Taskboard = () => {
             <DialogContent dividers>
               {selectedTask && (
                 <div className="task-description">
-                  <p className="task-detail">ID: {selectedTask.id}</p>
-                  <p className="task-detail">Description: {selectedTask.description}</p>
-                  <p className="task-detail">Assigned By: {selectedTask.assignedBy}</p>
-                  <p className="task-detail">Assigned To: {selectedTask.assignedTo}</p>
-                  <p className="task-detail">Start Date: {selectedTask.startDate}</p>
-                  <p className="task-detail">End Date: {selectedTask.endDate}</p>
-                  <p className="task-detail">Status: {selectedTask.status}</p>
+                  <div className="task-detail">
+                    <span>ID:</span> {selectedTask.id}
+                  </div>
+                  <div className="task-detail">
+                    <span>Assigned By:</span> {selectedTask.assignedBy}
+                  </div>
+                  <div className="task-detail">
+                    <span>Assigned To:</span> {selectedTask.assignedTo}
+                  </div>
+                  <div className="task-detail">
+                    <span>Task Name:</span> {selectedTask.name}
+                  </div>
+                  <div className="task-detail">
+                    <span>Description:</span> {selectedTask.description}
+                  </div>
+                  <div className="task-detail">
+                    <span>Start Date:</span> {selectedTask.startDate}
+                  </div>
+                  <div className="task-detail">
+                    <span>End Date:</span> {selectedTask.endDate}
+                  </div>
+                  <div className="task-detail">
+                    <span>Status:</span> {selectedTask.status}
+                  </div>
                   <button className="taskboard-download-button" onClick={handleDownload}>Download Report</button>
                 </div>
               )}

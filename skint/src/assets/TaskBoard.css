@@ -1,7 +1,111 @@
-/* TaskBoard.css */
-/* TaskBoard.css */
-/* TaskBoard.css */
-/* TaskBoard.css */
+
+
+.task-description {
+  background-color: #D7E8FA;
+  padding: 20px;
+  border-radius: 20px;
+}
+
+.task-detail {
+  position: relative;
+  margin: 10px 0;
+  padding: 10px;
+  background-color: #C9D4F7;
+  font-family: Arial, sans-serif;
+}
+
+.task-detail::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 15px;
+  background-color: #A2A9CC;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
+
+.task-detail span {
+  font-weight: bold;
+  padding: 10px;
+}
+
+.taskboard-download-button {
+  background-color: #5F9EA0;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.taskboard-download-button:hover {
+  background-color: #4682B4;
+}
+
+.task-description {
+  background-color: #D7E8FA;
+  padding: 20px;
+  border-radius: 20px;
+}
+
+.task-detail {
+  margin: 10px ;
+  padding: 10px;
+  background-color: #C9D4F7;
+  border-radius: 1px;
+  font-family: Arial, sans-serif;
+}
+
+.task-detail span {
+  font-weight: bold;
+}
+
+.taskboard-download-button {
+  background-color: #5F9EA0;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.taskboard-download-button:hover {
+  background-color: #4682B4;
+}
+
+.taskboard-card {
+  background-color: #D7E8FA;
+  border-radius: 20px; /* Adjust the border-radius as needed */
+  padding: 10px; /* Add padding for spacing */
+  margin-bottom: 10px; /* Add margin to separate task cards */
+  position: relative; /* Ensure pseudo-element is positioned relative to the card */
+}
+
+.taskboard-card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 10px; /* Adjust the width of the border */
+  border-top-right-radius: 20px; /* Match the border-radius of the card */
+  border-bottom-right-radius: 20px; /* Match the border-radius of the card */
+}
+
+.taskboard-card.completed::after {
+  background-color:#5DFD5D;
+}
+
+.taskboard-card.incomplete::after {
+  background-color: red;
+}
+
+.taskboard-card.overdue::after {
+  background-color: yellow;
+}
+
 
 .muja {
   background-color: white;
@@ -11,7 +115,9 @@
   margin: 20px auto; /* Center the div horizontally */
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Add box-shadow for elevation */
   min-height: 200px; /* Set a minimum height for the div */
+  max-height: 500px; /* Set a maximum height for the div */
   overflow-y: auto; /* Add vertical scrollbar if content exceeds div height */
+  margin-top: -2%;
 }
 
 .taskboard-cards {
@@ -304,7 +410,7 @@
   .task-description {
     margin-top: 20px;
     padding: 20px;
-    background-color: #f0f0f0;
+    background-color: #A7D0FF;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }

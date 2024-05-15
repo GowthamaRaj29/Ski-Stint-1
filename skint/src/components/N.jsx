@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../assets/N.css'; 
 import logoImage from './images/SKI-Coimbatore-Logo.webp'; 
+import MenuOpenIcon from '@mui/icons-material/MenuOpen';
 
 const SideNavbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -68,8 +69,8 @@ const SideNavbar = () => {
       </div>
       
       <button className="menu-button"  onClick={toggleNavbar}>
-      ☰
-
+    
+<MenuOpenIcon/>
       </button>
     </>
   );
