@@ -1,17 +1,58 @@
 
 
+
+.no-records {
+  text-align: center;
+  padding: 20px;
+}
+
+.no-records img {
+  max-width: 100%;
+  height: 390px;
+  margin: 0 auto;
+}
+
+body, .taskboard-container1 {
+  overflow-y: hidden; 
+  overflow-x: hidden;
+  height: 100vh; 
+}
+.taskboard-card h2 {
+  margin: 0;
+}
+
+.taskboard-card .p {
+  margin: 8px 0 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2%;
+  font-family: Poppins, sans-serif;
+}
+
+.description-text {
+  position: relative;
+  padding-left: 1%;
+}
+
+.taskboard-card .end-date {
+  position: absolute;
+  right: 16px;
+  font-family: Poppins, sans-serif;
+}
+
 .task-description {
-  background-color: #D7E8FA;
   padding: 20px;
   border-radius: 20px;
+  background-color: #A7D0FF;
 }
 
 .task-detail {
   position: relative;
   margin: 10px 0;
   padding: 10px;
-  background-color: #C9D4F7;
   font-family: Arial, sans-serif;
+  background-color: #C9D4F7;
 }
 
 .task-detail::before {
@@ -32,7 +73,7 @@
 }
 
 .taskboard-download-button {
-  background-color: #5F9EA0;
+  background-color: #7443C5;
   color: white;
   border: none;
   padding: 10px 20px;
@@ -44,26 +85,256 @@
   background-color: #4682B4;
 }
 
-.task-description {
+.muja {
+  
+  background-color: white;
+  padding: 30px;
+  border-radius: 13px;
+  width: calc(100% - 23px);
+  margin: 20px auto;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  min-height: 200px;
+  max-height: 500px;
+  overflow-y: scroll;
+  margin-left: -0.9%;
+  position: relative;
+  overflow-x: hidden;
+  box-sizing: border-box;
+  
+}
+
+.taskboard-cards {
+  padding: 10px;
+}
+
+.search-icon-fab {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1100;
+}
+
+.search-bar {
+  position: fixed;
+  bottom: 20px;
+  right: 80px;
+  width: 0;
+  overflow: hidden;
+  transition: width 0.3s ease;
+  z-index: 1050;
+}
+
+.search-input {
+  color: white;
+  padding: 10px;
+  width: 300px;
+}
+
+.bg .search-bar {
+  width: 300px;
+}
+
+.bg {
+  transition: transform 0.3s ease;
+}
+
+.shift-right {
+  transform: translateX(250px);
+}
+
+
+
+.menu-button {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  z-index: 5;
+}
+
+.taskboard-menu {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+  border-radius: 3%;
+}
+
+.taskboard-menu .fab {
+  margin-right: 10px;
+}
+
+.taskboard-menu .tm {
+  margin-left: auto;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background-color: white;
+  color: #fff;
+}
+
+.menu-button {
+  background-color: transparent;
+  color: #fff;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.search-bar-open {
+  display: block;
+}
+
+.search-bar-closed {
+  display: none;
+}
+
+.search-bar-open input {
+  width: 200px;
+}
+
+.taskboard-menu .MuiFab-root {
+  margin-right: 10px;
   background-color: #D7E8FA;
+}
+
+.search-bar {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 5px 10px;
+  margin-right: 10px;
+  transition: all 0.3s ease;
+}
+
+.search-bar input {
+  border: none;
+  outline: none;
+  width: 200px;
+  padding: 5px;
+}
+
+.search-bar input::placeholder {
+  color: #aaa;
+}
+
+.bg {
+  background-color: #dfdfdf;
+}
+
+.taskboard-filter-button {
+  font-size: 19px;
+  border-radius: 6px;
+  margin-right: 10px;
+}
+
+.task-filters {
+  margin-bottom: 20px;
+}
+
+.task-filter-button {
+  display: inline-block;
+  padding: 5px 10px;
+  margin-right: 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.taskboard-card {
+  background-color: #D7E8FA;
+  border-radius: 12px;
+  padding: 10px;
+  margin-bottom: 10px;
+  width: 100%; /* Adjusted to full width */
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+  margin-left: -0%;
+  height: auto; /* Adjusted for variable height */
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 8px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 8px;
+}
+
+.taskboard-container1 {
+  width: 100%;
+  padding: 20px;
+  
+  margin: 0 auto;
+  background-color: #dfdfdf;
+  overflow-x: hidden;
+  overflow-y: hidden; /* Prevent horizontal scrolling */
+}
+
+.taskboard-title {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.taskboard-card h2 {
+  margin: 0;
+}
+
+
+.taskboard-card .p {
+  margin: 8px 0 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2%;
+
+  
+}
+.description-text {
+  position: relative;
+   padding-left: 1%;
+}
+
+
+.taskboard-card .end-date {
+  position: absolute;
+ 
+  right: 16px;
+}
+
+
+
+
+.task-description {
   padding: 20px;
   border-radius: 20px;
+  background-color: #A7D0FF;
 }
 
 .task-detail {
-  margin: 10px ;
+  position: relative;
+  margin: 10px 0;
   padding: 10px;
-  background-color: #C9D4F7;
-  border-radius: 1px;
   font-family: Arial, sans-serif;
+  background-color: #C9D4F7;
+}
+
+.task-detail::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 15px;
+  background-color: #A2A9CC;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
 }
 
 .task-detail span {
   font-weight: bold;
+  padding: 10px;
 }
 
 .taskboard-download-button {
-  background-color: #5F9EA0;
+  background-color: #7443C5;
   color: white;
   border: none;
   padding: 10px 20px;
@@ -77,10 +348,14 @@
 
 .taskboard-card {
   background-color: #D7E8FA;
-  border-radius: 20px; /* Adjust the border-radius as needed */
-  padding: 10px; /* Add padding for spacing */
-  margin-bottom: 10px; /* Add margin to separate task cards */
-  position: relative; /* Ensure pseudo-element is positioned relative to the card */
+  border-radius: 20px;
+  padding: 1rem;
+  margin-bottom: 10px;
+  position: relative;
+
+  width: 100%;
+
+  
 }
 
 .taskboard-card::after {
@@ -89,339 +364,315 @@
   top: 0;
   right: 0;
   bottom: 0;
-  width: 10px; /* Adjust the width of the border */
-  border-top-right-radius: 20px; /* Match the border-radius of the card */
-  border-bottom-right-radius: 20px; /* Match the border-radius of the card */
+  width: 10px;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
 }
 
 .taskboard-card.completed::after {
-  background-color:#5DFD5D;
+  background-color: #1AB30D;
 }
 
 .taskboard-card.incomplete::after {
-  background-color: red;
+  background-color: #FC2222;
 }
 
 .taskboard-card.overdue::after {
-  background-color: yellow;
+  background-color: #FF7A00;
 }
 
-
 .muja {
-  background-color: white;
-  padding: 30px; /* Increase padding for more space */
-  border-radius: 25px; /* Increase border-radius for rounded corners */
-  width: calc(100% - 60px); /* Set width to 100% minus the padding */
-  margin: 20px auto; /* Center the div horizontally */
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Add box-shadow for elevation */
-  min-height: 200px; /* Set a minimum height for the div */
-  max-height: 500px; /* Set a maximum height for the div */
-  overflow-y: auto; /* Add vertical scrollbar if content exceeds div height */
-  margin-top: -2%;
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 0 20px #0000001a;
+  height: 73%;
+  margin: 1.7rem auto 20px -.9%;
+  max-height: 500px;
+  min-height: 200px;
+  overflow-y: scroll;
+  padding: 30px;
+  position: relative;
+  width: calc(100% - 35px);
+  margin-top:3%;
+  padding-right: 2%;
 }
 
 .taskboard-cards {
-  padding: 10px; /* Add padding for spacing */
-}
-
-.taskboard-card {
-  background-color: white;
-  border-radius: 20px; /* Adjust the border-radius as needed */
-  padding: 10px; /* Add padding for spacing */
-  margin-bottom: 10px; /* Add margin to separate task cards */
+  padding: 10px;
 }
 
 
-
-
-
-.taskboard-card {
-  background-color: white;
-  border-radius: 20px; /* Adjust the border-radius as needed */
-  padding: 20px; /* Add padding for spacing */
-  margin-bottom: 10px; /* Add margin to separate task cards */
-}
 
 .search-icon-fab {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  z-index: 1100; /* Ensure it's above other content */
+  z-index: 1100;
 }
 
 .search-bar {
   position: fixed;
   bottom: 20px;
-  right: 80px; /* Adjust based on the size of the search icon */
+  right: 80px;
   width: 0;
   overflow: hidden;
   transition: width 0.3s ease;
-  z-index: 1050; /* Below the search icon */
+  z-index: 1050;
 }
 
 .search-input {
   color: white;
   padding: 10px;
-  width: 300px; /* Adjust as needed */
+  width: 300px;
 }
 
-/* When the search bar is open, we want to change its width */
 .bg .search-bar {
-  width: 300px; /* Adjust as needed */
+  width: 300px;
 }
 
-.bg {
-  transition: transform 0.3s ease;
-}
+
 
 .shift-right {
-  transform: translateX(250px); /* Adjust this value if needed */
+  transform: translateX(250px);
 }
 
 .taskboard-container {
   position: relative;
-  
-  /* ... other styles ... */
+  padding-bottom: 20px;
+  border-radius: 20px;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
 .menu-button {
   position: absolute;
   top: 15px;
   right: 15px;
-  z-index: 5; /* Ensure this is above all other content */
-  /* ... other styles ... */
+  z-index: 5;
 }
 
-/* Add this to your existing .taskboard-menu class */
-.taskboard-menu {
-  z-index: 2; /* Ensure this is higher than the z-index of .taskboard-cards */
-  /* ... other styles ... */
-}
 .taskboard-menu {
   display: flex;
   align-items: center;
-  margin-bottom: 10%;
+  margin-bottom: 30px;
+  border-radius: 3%;
 }
 
 .taskboard-menu .fab {
-  margin-right: 10px; /* Adjust the margin as needed */
+  margin-right: 10px;
 }
 
 .taskboard-menu .tm {
-  margin-left: auto; /* Pushes the three dots button to the right */
+  margin-left: auto;
 }
 
-.taskboard-menu {
-    display: flex;
-    align-items: center;
-  }
-  
-  .taskboard-menu .fab {
-    margin-right: 10px; /* Adjust the margin as needed */
-  }
-  
-  .taskboard-menu .overdue-button {
-    margin-right: 10px; /* Adjust the margin as needed */
-  }
-  
-  .taskboard-menu .three-dots-button {
-    /* Add any styles for the three dots button */
-  }
-  
-.taskboard-menu {
-    display: flex;
-    align-items: center;
-  }
-  
-  .taskboard-menu .fab {
-    margin-right: 50px; /* Adjust the margin as needed */
-  }
-  
-.navbar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px 20px;
-    background-color: white; /* Change the background color as needed */
-    color: #fff; /* Change the text color as needed */
-  }
-  
-  .menu-button {
-    background-color: transparent;
-    color: #fff;
-    border: none;
-    font-size: 20px;
-    cursor: pointer;
-  }
-  
-  .search-bar-open {
-    display: block;
-  }
-  
-  .search-bar-closed {
-    display: none;
-  }
-  
-  .search-bar-open input {
-    width: 200px; /* Adjust the width as needed */
-  }
-  
-  .taskboard-menu {
-    display: flex;
-  }
-  
-  .taskboard-menu .MuiFab-root {
-    margin-right: 10px; 
-    background-color: #D7E8FA;/* Adjust the spacing between buttons as needed */
-  }
-  
+
+
+.menu-button {
+  background-color: transparent;
+  color: #fff;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+
+
+
+.taskboard-menu .MuiFab-root {
+  margin-right: 10px;
+  background-color: #D7E8FA;
+}
+
+
 .search-bar {
-    background-color: #fff;
-    border-radius: 10px;
-    padding: 5px 10px;
-    margin-right: 10px;
-    transition: all 0.3s ease;
-  }
-  
-  .search-bar input {
-    border: none;
-    outline: none;
-    width: 200px;
-    padding: 5px;
-    
-  }
-  
-  
-  .search-bar input::placeholder {
-    color: #aaa;
-  }
-  
-.bg{
-    background-color: #dfdfdf;
-  }
-  .taskboard-container {
-    /* Other styles... */
-    padding-bottom: 20px; /* Add margin bottom to the container */
-    border-radius: 20px;
-    
-  }
-  
-  .taskboard-menu {
-    margin-bottom: 50px;
-    margin-left: 0px; /* Add margin bottom to create space between the menu and task cards */
-  }
-  
-  .taskboard-filter-button {
-    font-size: 19px;
-    border-radius: 6px;
-    margin-right: 10px; /* Add space between the filter buttons */
-  }
-  
-  .taskboard-filter-button:last-child {
-    margin-right: 0; /* Remove margin from the last filter button */
-  }
-  
-  .task-filters {
-    background-color:(0, 0, 0, .569);
-    margin-bottom: 20px; /* Add some bottom margin */
-  }
-  
-  .task-filter-button {
-    display: inline-block;
-    padding: 5px 10px;
-    margin-right: 10px; /* Add space between each filter button */
-    background-color: #4CAF50; /* Green background color */
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  .task-filter-button:last-child {
-    margin-right: 0; /* Remove margin from the last filter button */
-  }
-  
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 5px 10px;
+  margin-right: 10px;
+  transition: all 0.3s ease;
+}
+
+.search-bar input {
+  border: none;
+  outline: none;
+  width: 200px;
+  padding: 5px;
+}
+
+.search-bar input::placeholder {
+  color: #aaa;
+}
+
+.bg {
+  background-color: #dfdfdf;
+}
+
+.taskboard-filter-button {
+  font-size: 19px;
+  border-radius: 6px;
+  margin-right: 10px;
+}
+
+.task-filters {
+  margin-bottom: 20px;
+}
+
+.task-filter-button {
+  display: inline-block;
+  padding: 5px 10px;
+  margin-right: 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.taskboard-card {
+  background-color: #D7E8FA;
+  border-radius: 12px;
+  padding: 1rem;
+  margin-bottom: 10px;
+  width: 100%; /* Ensure the card takes up the full width of its container */
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+  margin-left: -0%;
+  height: 97px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 8px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 8px;
+overflow: hidden;
+
+
+}
+
+
+.taskboard-container1 {
+  background-color: var(--bg);
+  height: 100vh;
+  padding: 1.5rem;
+  width: 100%;
+}
+
+
+.taskboard-title {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.taskboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.taskboard-grid-item {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.taskboard-grid-item:hover {
+  background-color: #CCCCCC;
+}
+
+.task-detail {
+  padding: 10px;
+}
+
+.task-detail p {
+  margin: 5px 0;
+}
+
+.taskboard-download-button {
+  width: auto;
+  align-content: center;
+  margin-left: auto;
+  padding: 8px 16px;
+  background-color: #5865cb;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.taskboard-download-button:hover {
+  background-color: #4853a4;
+}
+
+.task-description {
+  margin-top: 20px;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.description-heading {
+  font-weight: bold;
+}
+
+.tm {
+  margin-right: 50px;
+}
+
+/* Responsive Styles */
+@media (max-width: 1200px) {
   .taskboard-card {
-    background-color:#D7E8FA;
-    border-radius:20px; /* Adjust the border-radius as needed */
-    padding: 10px; /* Add padding for spacing */
-    margin-bottom: 10px; /* Add margin to separate task cards */
-  }
-  
-  /* Additional styles for taskboard-card */
-  
- 
-  .taskboard-container1 {
     width: 100%;
-    padding: 20px;
-    max-width: 1200px; /* Set the maximum width of the container */
-    margin: 0 auto; /* Center the container horizontally */
-    background-color:#dfdfdf;
+    height: auto;
   }
-  
-  .taskboard-title {
-    text-align: center;
+}
+
+@media (max-width: 768px) {
+  .taskboard-download-button {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .menu-button {
+    top: 10px;
+    right: 10px;
+  }
+
+  .search-bar {
+    bottom: 10px;
+    right: 10px;
+  }
+
+  .taskboard-menu {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .taskboard-menu .fab {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+
+  .taskboard-menu .tm {
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .taskboard-menu {
     margin-bottom: 20px;
   }
-  
+
   .taskboard-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Adjusted the minimum width of each task card */
-    gap: 20px;
+    grid-template-columns: 1fr;
   }
-  
-  .taskboard-grid-item {
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .taskboard-grid-item:hover {
-    background-color: #CCCCCC; /* Changed the hover color */
-  }
-  
-  .task-detail {
+
+  .taskboard-download-button {
     padding: 10px;
   }
-  
-  .task-detail p {
-    margin: 5px 0;
+
+  .search-bar {
+    width: 100%;
+    bottom: 10px;
+    right: 10px;
   }
-  
-  .taskboard-download-button {
-    width: 12%;
-    align-content: center;
-    margin-left: 85%;
-    padding: 8px 16px;
-    background-color: #5865cb;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .taskboard-download-button:hover {
-    background-color: #4853a4;
-  }
-  
-  .task-description {
-    margin-top: 20px;
-    padding: 20px;
-    background-color: #A7D0FF;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  .description-heading {
-    font-weight: bold;
-  }
-  .task-filters {
-    margin-bottom: 20px; /* Add some bottom margin */
-  }
-  .tm{
-    margin-right: 50px;
-  }
-  
+}

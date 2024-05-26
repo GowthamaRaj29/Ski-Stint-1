@@ -1,4 +1,146 @@
 
+.navbar-container {
+  background-color: white;
+}
+
+.navbar {
+  background-color: white;
+}
+
+.navbar-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.navbar-brand-container {
+  flex: 1;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.brand {
+  color: #6D82D2;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.navbar-search-container {
+  flex: 2;
+  display: flex;
+  justify-content: center;
+}
+
+.search-input-container {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+}
+
+.search-icon {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #DFDFDF;
+}
+
+.search-input {
+  width: 100%;
+  padding: 8px 20px 8px 40px;
+  border-radius: 15px;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-admin-container {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  color: black;
+}
+
+.admin-info {
+  display: flex;
+  align-items: center;
+  color: black;
+}
+
+.admin-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #F5C6C6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 10px;
+  font-weight: bold;
+  color: #000;
+}
+
+.admin-text {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .navbar-content {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .navbar-search-container {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .search-input-container {
+    width: 100%;
+  }
+
+  .navbar-admin-container {
+    width: 100%;
+    justify-content: center;
+    margin-top: 10px;
+  }
+
+  .admin-info {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .brand {
+    font-size: 1.2rem;
+  }
+
+  .search-input {
+    padding: 6px 15px 6px 35px;
+  }
+
+  .admin-icon {
+    width: 30px;
+    height: 30px;
+    font-size: 0.8rem;
+  }
+
+  .admin-text {
+    font-size: 0.9rem;
+  }
+}
+
+.m
+{
+  background-color:' #d9dadb';
+}
+.bg 
+{
+  position: relative;
+}
 .c {
   display: flex;
   flex-direction: column;
@@ -40,19 +182,23 @@
   z-index: 2;
   left: 0;
   top: 0;
-  background-color: white;
+  background-color: #111643;
   overflow-x: hidden;
   transition: width 0.3s ease;
+  height: 100vh;
 
 }
 
 .sidenavbar.open {
   width: 250px; 
+  background-color: #111643;
+  color: #d9dadb;
+  height: 100vh;
 }
 
 .menu-button {
   z-index: 3;
-  background-color: black;
+ 
   color: black; 
  
 }
@@ -82,17 +228,17 @@ color: black;
   padding: 8px 8px 8px 32px;
   text-decoration: none;
   font-size: 25px;
-  color: #818181;
+  color: #d9dadb;
   display: block;
   transition: 0.3s;
 }
 
 .sidenavbar a:hover {
-  color: black;
+  color: darkgoldenrod;
 }
 
 .sidenavbar .active {
-  color: #4CAF50;
+  color:  darkgoldenrod;
 }
 
 .menu-button {

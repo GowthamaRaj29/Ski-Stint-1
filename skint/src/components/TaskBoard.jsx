@@ -15,16 +15,21 @@ import '../assets/TaskBoard.css';
 import SideNavbar from './sideNavbar';
 import tasksData from './Task.json';
 import BrandExample from './topNavbar';
+import deslogo from './images/dl.png';
+import noDataImage from './images/norecord.jpg' // Import the no data image
 
 const Taskboard = () => {
   const [tasks, setTasks] = useState(tasksData);
   const [selectedTask, setSelectedTask] = useState(null);
   const [filter, setFilter] = useState('All');
+  const [searchText, setSearchText] = useState('');
   const [anchorElDesignation, setAnchorElDesignation] = useState(null);
   const [anchorElSort, setAnchorElSort] = useState(null);
+  const [anchorElDepartment, setAnchorElDepartment] = useState(null);
   const [isNavbarOpen, setIsNavbarOpen] = useState(false);
   const [openDialog, setOpenDialog] = useState(false);
   const [sortBy, setSortBy] = useState('First start first');
+  const [selectedDepartment, setSelectedDepartment] = useState('All');
   const [designationCategories, setDesignationCategories] = useState([
     'Principal',
     'Dean',
@@ -34,12 +39,19 @@ const Taskboard = () => {
   const [sortingOptions, setSortingOptions] = useState([
     'First start first',
     'Last start first',
-    'First finish first',
-    'Last finish first',
-    'First update first',
-    'Last update first',
-    'First created first',
-    'Last created first',
+    'Department',
+  ]);
+  const [departments, setDepartments] = useState([
+    'All',
+    'CSE',
+    'AIML',
+    'AI&DS',
+    'MECH',
+    'EEE',
+    'ECE',
+    'CIVIL',
+    'IOT',
+    'CybSec',
   ]);
 
   const handleDesignationClick = (event) => {
@@ -64,8 +76,19 @@ const Taskboard = () => {
   };
 
   const handleSortItemClick = (option) => {
-    setSortBy(option);
-    handleSortClose();
+    if (option === 'Department') {
+      setAnchorElDepartment(anchorElSort);
+      setAnchorElSort(null);
+    } else {
+      setSortBy(option);
+      setAnchorElSort(null);
+    }
+  };
+
+  const handleDepartmentItemClick = (department) => {
+    setSelectedDepartment(department);
+    setSortBy('Department');
+    setAnchorElDepartment(null);
   };
 
   const handleDownload = () => {
@@ -82,6 +105,10 @@ const Taskboard = () => {
     setFilter(selectedFilter);
   };
 
+  const handleSearch = (e) => {
+    setSearchText(e.target.value);
+  };
+
   const toggleNavbar = () => {
     setIsNavbarOpen(!isNavbarOpen);
   };
@@ -92,18 +119,8 @@ const Taskboard = () => {
         return tasks.sort((a, b) => new Date(a.startDate) - new Date(b.startDate));
       case 'Last start first':
         return tasks.sort((a, b) => new Date(b.startDate) - new Date(a.startDate));
-      case 'First finish first':
-        return tasks.sort((a, b) => new Date(a.endDate) - new Date(b.endDate));
-      case 'Last finish first':
-        return tasks.sort((a, b) => new Date(b.endDate) - new Date(a.endDate));
-      case 'First update first':
-        return tasks.sort((a, b) => new Date(a.updatedAt) - new Date(b.updatedAt));
-      case 'Last update first':
-        return tasks.sort((a, b) => new Date(b.updatedAt) - new Date(a.updatedAt));
-      case 'First created first':
-        return tasks.sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt));
-      case 'Last created first':
-        return tasks.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+      case 'Department':
+        return tasks.filter(task => selectedDepartment === 'All' || task.department === selectedDepartment);
       default:
         return tasks;
     }
@@ -111,11 +128,12 @@ const Taskboard = () => {
 
   const filteredTasks = sortTasks(
     tasks.filter((task) => {
-      const isFiltered =
-        filter === 'All' ||
-        task.status === filter ||
-        task.designation === filter; // Filter based on designation as well
-      return isFiltered;
+      const matchesSearch = task.name.toLowerCase().includes(searchText.toLowerCase()) ||
+                            task.assignedBy.toLowerCase().includes(searchText.toLowerCase()) ||
+                            task.assignedTo.toLowerCase().includes(searchText.toLowerCase()) ||
+                            task.description.toLowerCase().includes(searchText.toLowerCase());
+      const isFiltered = filter === 'All' || task.status === filter || task.designation === filter || task.department === filter;
+      return matchesSearch && isFiltered;
     })
   );
 
@@ -124,8 +142,8 @@ const Taskboard = () => {
   };
 
   return (
-    <div>
-      <BrandExample />
+    <div className='body-shift'>
+      <BrandExample searchText={searchText} handleSearch={handleSearch} />
       <div className={`bg ${isNavbarOpen ? 'shift-right' : ''}`}>
         <SideNavbar />
         <div className="taskboard-container1">
@@ -189,42 +207,58 @@ const Taskboard = () => {
                 </MenuItem>
               ))}
             </Menu>
+            <Menu
+              id="department-menu"
+              anchorEl={anchorElDepartment}
+              keepMounted
+              open={Boolean(anchorElDepartment)}
+              onClose={() => setAnchorElDepartment(null)}
+            >
+              {departments.map((department) => (
+                <MenuItem key={department} onClick={() => handleDepartmentItemClick(department)}>
+                  {department}
+                </MenuItem>
+              ))}
+            </Menu>
           </div>
           <div className="muja">
             <div className="taskboard-cards">
-              {filteredTasks.map((task) => (
-                <div
-                  key={task.id}
-                  className={`taskboard-card ${
-                    task.status === 'Completed'
-                      ? 'completed'
-                      : task.status === 'Incomplete'
-                      ? 'incomplete'
-                      : task.status === 'Overdue'
-                      ? 'overdue'
-                      : ''
-                  }`}
-                  onClick={() => handleTaskClick(task.id)}
-                >
-                  <h2>{task.name}</h2>
-                  <p>Assigned By: {task.assignedBy} ({task.designation})</p>
+              {filteredTasks.length === 0 ? (
+                <div className="no-records">
+                  <img src={noDataImage} alt="No Data" />
+                  <p>No Record Found !!</p>
                 </div>
-              ))}
+              ) : (
+                filteredTasks.map((task) => (
+                  <div
+                    key={task.id}
+                    className={`taskboard-card ${
+                      task.status === 'Completed'
+                        ? 'completed'
+                        : task.status === 'Incomplete'
+                        ? 'incomplete'
+                        : task.status === 'Overdue'
+                        ? 'overdue'
+                        : ''
+                    }`}
+                    onClick={() => handleTaskClick(task.id)}
+                  >
+                    <h2>{task.name}</h2>
+                    <p className="p">
+                      <span>Assigned By: {task.assignedBy} ({task.designation})</span>
+                      <span className="end-date">Assigned-Date: {task.startDate}</span>
+                    </p>
+                  </div>
+                ))
+              )}
             </div>
             <Dialog onClose={handleCloseDialog} open={openDialog} fullWidth maxWidth="md">
-              <DialogTitle>Task Details</DialogTitle>
-              <IconButton
-                aria-label="close"
-                onClick={handleCloseDialog}
-                sx={{
-                  position: 'absolute',
-                  right: 8,
-                  top: 8,
-                  color: (theme) => theme.palette.grey[500],
-                }}
-              >
-                <CloseIcon />
-              </IconButton>
+              <DialogTitle>
+                <div style={{ display: 'flex', alignItems: 'center', fontSize: '23px' }}>
+                  <img src={deslogo} alt="Logo" className='dl' style={{ width: '50px', height: '50px', marginRight: '10px' }}/>
+                  Task Details
+                </div>
+              </DialogTitle>
               <DialogContent dividers>
                 {selectedTask && (
                   <div className="task-description">
@@ -241,20 +275,15 @@ const Taskboard = () => {
                       <span>Task Name:</span> {selectedTask.name}
                     </div>
                     <div className="task-detail">
-                      <span>Description:</span> {selectedTask.description}
+                      <div className='description-text'><span>Description: </span> {selectedTask.description}</div>
                     </div>
                     <div className="task-detail">
-                      <span>Start Date:</span> {selectedTask.startDate}
-                    </div>
-                    <div className="task-detail">
-                      <span>End Date:</span> {selectedTask.endDate}
+                      <span>Start Date:</span> {selectedTask.startDate} <span>End Date:</span> {selectedTask.endDate}
                     </div>
                     <div className="task-detail">
                       <span>Status:</span> {selectedTask.status}
                     </div>
-                    <div className="task-detail">
-                      <span>Designation:</span> {selectedTask.designation}
-                    </div>
+                   
                     <button className="taskboard-download-button" onClick={handleDownload}>
                       Download Report
                     </button>
