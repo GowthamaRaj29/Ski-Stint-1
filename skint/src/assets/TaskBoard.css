@@ -1,3 +1,25 @@
+.muja {
+  position: relative; /* Ensure that the h3 element is positioned relative to muja */
+
+}
+
+.muja h3 {
+  position: absolute;
+  top:0;
+  left: 0;
+  margin: 0; /* Remove any default margin */
+  padding: -1px; /* Add some padding if needed */
+  font-size: 1.43rem; /* Adjust font size as necessary */
+  margin: 13px;
+  
+    color: #161c3b; /* A lighter gray shade for reduced contrast */
+    font-family: Poppins, sans-serif;
+    font-weight: 400
+    
+;
+  
+
+}
 
 
 
@@ -261,7 +283,7 @@ body, .taskboard-container1 {
 
 .taskboard-container1 {
   width: 100%;
-  padding: 20px;
+  padding: 1.2rem;
   
   margin: 0 auto;
   background-color: #dfdfdf;
@@ -395,10 +417,12 @@ body, .taskboard-container1 {
   width: calc(100% - 35px);
   margin-top:3%;
   padding-right: 2%;
+  
 }
 
 .taskboard-cards {
   padding: 10px;
+  margin-top: 25px;
 }
 
 
@@ -532,7 +556,7 @@ body, .taskboard-container1 {
   background-color: #D7E8FA;
   border-radius: 12px;
   padding: 1rem;
-  margin-bottom: 10px;
+  margin-bottom: 11px;
   width: 100%; /* Ensure the card takes up the full width of its container */
   box-sizing: border-box; /* Include padding and border in the element's total width and height */
   margin-left: -0%;
@@ -550,8 +574,9 @@ overflow: hidden;
 .taskboard-container1 {
   background-color: var(--bg);
   height: 100vh;
-  padding: 1.5rem;
+  padding: 2rem;
   width: 100%;
+  padding-top:3%;
 }
 
 
