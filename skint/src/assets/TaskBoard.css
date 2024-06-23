@@ -1,3 +1,5 @@
+
+
 .muja {
   position: relative; /* Ensure that the h3 element is positioned relative to muja */
 
@@ -129,35 +131,15 @@ body, .taskboard-container1 {
   padding: 10px;
 }
 
-.search-icon-fab {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  z-index: 1100;
-}
 
-.search-bar {
-  position: fixed;
-  bottom: 20px;
-  right: 80px;
-  width: 0;
-  overflow: hidden;
-  transition: width 0.3s ease;
-  z-index: 1050;
-}
 
-.search-input {
-  color: white;
-  padding: 10px;
-  width: 300px;
-}
 
-.bg .search-bar {
-  width: 300px;
-}
+
 
 .bg {
   transition: transform 0.3s ease;
+  overflow: -moz-hidden-unscrollable;
+ 
 }
 
 .shift-right {
@@ -205,44 +187,24 @@ body, .taskboard-container1 {
   cursor: pointer;
 }
 
-.search-bar-open {
-  display: block;
-}
 
-.search-bar-closed {
-  display: none;
-}
 
-.search-bar-open input {
-  width: 200px;
-}
+
 
 .taskboard-menu .MuiFab-root {
   margin-right: 10px;
   background-color: #D7E8FA;
 }
 
-.search-bar {
-  background-color: #fff;
-  border-radius: 10px;
-  padding: 5px 10px;
-  margin-right: 10px;
-  transition: all 0.3s ease;
-}
 
-.search-bar input {
-  border: none;
-  outline: none;
-  width: 200px;
-  padding: 5px;
-}
 
-.search-bar input::placeholder {
-  color: #aaa;
-}
+
+
+
 
 .bg {
   background-color: #dfdfdf;
+ 
 }
 
 .taskboard-filter-button {
@@ -427,32 +389,16 @@ body, .taskboard-container1 {
 
 
 
-.search-icon-fab {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  z-index: 1100;
-}
 
-.search-bar {
-  position: fixed;
-  bottom: 20px;
-  right: 80px;
-  width: 0;
-  overflow: hidden;
-  transition: width 0.3s ease;
-  z-index: 1050;
-}
+
 
 .search-input {
   color: white;
-  padding: 10px;
-  width: 300px;
+  
+  width: 250px;
 }
 
-.bg .search-bar {
-  width: 300px;
-}
+
 
 
 
@@ -576,7 +522,7 @@ overflow: hidden;
   height: 100vh;
   padding: 2rem;
   width: 100%;
-  padding-top:3%;
+  padding-top: 1%;
 }
 
 
@@ -695,9 +641,5 @@ overflow: hidden;
     padding: 10px;
   }
 
-  .search-bar {
-    width: 100%;
-    bottom: 10px;
-    right: 10px;
-  }
+
 }
