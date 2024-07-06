@@ -40,6 +40,7 @@ body, .taskboard-container1 {
   overflow-y: hidden; 
   overflow-x: hidden;
   height: 100vh; 
+ 
 }
 .taskboard-card h2 {
   margin: 0;
@@ -229,6 +230,7 @@ body, .taskboard-container1 {
 }
 
 .taskboard-card {
+  cursor: pointer;
   background-color: #D7E8FA;
   border-radius: 12px;
   padding: 10px;
@@ -242,6 +244,14 @@ body, .taskboard-container1 {
   border-top-left-radius: 10px;
   border-top-right-radius: 8px;
 }
+
+.taskboard-card:hover {
+  background-color: #B0D4F8; /* Change the background color on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow effect on hover */
+  transform: scale(1.02); /* Slightly scale up the card on hover */
+  transition: all 0.3s ease; /* Smooth transition for the hover effect */
+}
+
 
 .taskboard-container1 {
   width: 100%;
